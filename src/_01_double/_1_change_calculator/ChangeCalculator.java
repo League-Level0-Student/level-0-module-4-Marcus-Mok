@@ -23,7 +23,7 @@ public class ChangeCalculator {
 		
 		double money = nickelsi*0.05 + dimesi*0.1 + quartersi*0.25;
 		
-		 JOptionPane.showInputDialog(null, "you have $" + money );
+		 JOptionPane.showMessageDialog(null, "you have $" + money );
 		
 		// Ask the user how many nickels they have
 
