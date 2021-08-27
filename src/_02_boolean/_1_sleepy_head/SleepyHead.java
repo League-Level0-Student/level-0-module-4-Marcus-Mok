@@ -11,8 +11,18 @@ public class SleepyHead {
 
 		/************************  SLEEPY HEAD  **************************/
 		boolean isWeekend;
+		
 		// Write code to ask the user what day it is.
-        
+		String day = JOptionPane.showInputDialog(null, "What day of the week is it?");
+	    if(day.equalsIgnoreCase("sunday")) {
+	    JOptionPane.showMessageDialog(null, "You can sleep in today");
+	    }
+	    else if(day.equalsIgnoreCase("saturday")) {
+	    	JOptionPane.showMessageDialog(null, " You can sleep in today" );
+	    }
+	    else {
+	    	JOptionPane.showMessageDialog(null, "wake up you sleepy head" );
+	    }
 		// Set the boolean isWeekend based on the value they enter
 		
 		
@@ -25,8 +35,16 @@ public class SleepyHead {
 
 		boolean passedExam;
 		// Write code to ask the user what percentage they scored in their last exam
-
-		
+		String score = JOptionPane.showInputDialog(null, "What score % did you get on your last exam?");
+		int iscore = Integer.parseInt(score);
+		if(iscore>70) {
+			passedExam = true;
+			JOptionPane.showMessageDialog(null, "Congrats" );
+		}
+		else {
+			passedExam = false;
+			JOptionPane.showMessageDialog(null, "better luck next time" );
+		}
 		// If they scored more than 70, they passed the exam.
 		// Set the boolean passedExam based on their score.
 		
@@ -49,15 +67,25 @@ public class SleepyHead {
 
 		}
 		// Tell the user "game is over" 
-		
+		JOptionPane.showMessageDialog(null, "GAME OVER" );
 		
 		/***********************   RED SQUARE  ********************/
 		
-		boolean isRed;
+		boolean isRed = false;
 		// Ask the user what color to draw with. Based on their answer, set the isRed variable
+		String color = JOptionPane.showInputDialog("What color should I draw with?");
+		if(color.equalsIgnoreCase("Red")) {
+			isRed = true;
+		}
+		boolean isSquare = false;	
+		String shape = JOptionPane.showInputDialog("What shape should I draw?");
+		if(shape.equalsIgnoreCase("Square")) {
+			isSquare = true;
+		}            
 		
-		
-		boolean isSquare;		
+		if(isRed && isSquare) {
+			drawRedSquare();
+		}
 		// Now ask the user what shape to draw. Based on their answer, set the isSquare variable
 		
 		
@@ -72,6 +100,13 @@ public class SleepyHead {
 	
 	static void drawRedSquare() {
 		Robot rob = new Robot();
+		rob.setSpeed(70);
+		rob.penDown();
+		rob.setPenColor(255, 0, 0);
+		for(int i = 0; i <= 4; i++) {
+		rob.move(100);
+		rob.turn(90);
+		}
 		// Complete the rest of this method
 	}	
 }
